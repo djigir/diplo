@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [\App\Http\Controllers\IndexController::class, 'index'])->name('index');
+Route::get('/show/{id}', [\App\Http\Controllers\IndexController::class, 'show'])->name('index.show');
+Route::get('/contacts', [\App\Http\Controllers\ContactController::class, 'index'])->name('contacts');
 
 Auth::routes();
 
